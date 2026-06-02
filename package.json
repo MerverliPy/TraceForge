@@ -1,0 +1,21 @@
+{
+  "name": "traceforge",
+  "version": "0.0.0",
+  "private": true,
+  "description": "TUI-first AI agent framework with trace-native runtime",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^20.17.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.8.0",
+    "vitest": "^3.1.0"
+  }
+}

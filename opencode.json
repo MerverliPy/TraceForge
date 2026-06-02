@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "*": "ask",
+    "read": "allow",
+    "grep": "allow",
+    "glob": "allow",
+    "bash": "ask",
+    "edit": "ask"
+  },
+  "instructions": [
+    "AGENTS.md",
+    "README.md",
+    "IMPLEMENTATION_PHASES.md",
+    "docs/product-spec.md",
+    "docs/architecture-blueprint.md",
+    "docs/security-model.md",
+    "docs/tool-contracts.md",
+    "docs/observability-model.md"
+  ]
+}

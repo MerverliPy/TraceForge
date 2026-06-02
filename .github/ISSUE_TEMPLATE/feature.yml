@@ -1,0 +1,39 @@
+name: Feature request
+description: Propose a TraceForge capability
+labels: ["feature"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the proposed feature.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - TUI
+        - orchestration
+        - model adapters
+        - tools
+        - memory
+        - reflection
+        - benchmarks
+        - OpenCode bridge
+        - documentation
+    validations:
+      required: true
+  - type: textarea
+    id: trace-impact
+    attributes:
+      label: Trace impact
+      description: What events or observability changes are needed?
