@@ -44,6 +44,32 @@ Create contract-only modules. Keep concrete behavior minimal.
 - Unit tests cover valid and invalid examples.
 - No provider-specific types leak into core contracts.
 
+## Test Expansion Checklist
+
+### Schema validation tests
+- [ ] `runId` / `spanId` primitive: must reject empty strings, must accept valid ULID/UUID formats
+- [ ] `RunStatus`: must accept only defined status values, must reject unknown strings
+- [ ] `TraceEventCategory`: must accept only defined categories
+- [ ] `ModelRequest` / `ModelResponse`: must validate required fields (model, messages), reject missing provider
+- [ ] `ToolRequest` / `ToolResult`: must validate tool id, input schema, reject missing permission policy
+- [ ] `PlannerPlan` / `PlanStep`: must validate ordered step array, reject circular dependencies
+- [ ] `WorkerTask` / `WorkerResult`: must validate task id and status transitions
+- [ ] `PermissionRequest` / `PermissionDecision`: must validate level enum (allow/ask/deny)
+- [ ] `MemoryRecord`: must validate content, timestamp, and run reference
+- [ ] `BenchmarkCase` / `BenchmarkResult`: must validate expected output shape and score fields
+
+### Config validation tests
+- [ ] Config schema rejects unknown top-level keys
+- [ ] Config schema validates model adapter config shape
+- [ ] Config schema validates tool policy entries (level, allowlist, denylist)
+- [ ] Config schema rejects empty config files
+- [ ] Config schema validates timeout and truncation values are positive
+
+### Contract boundary tests
+- [ ] No provider-specific types (OpenAI, Anthropic, Ollama) leak into core contract modules
+- [ ] All contracts export Zod schemas with `.parse()` and `.safeParse()` available
+- [ ] All contracts are tree-shakeable (type-only imports work)
+
 ## Validation Commands
 
 ```bash
